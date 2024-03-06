@@ -20,13 +20,50 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from '../charts/Chart';
-import Deposits from '../charts/Deposits';
-import Customer from '../charts/Customers';
-import MetricsCard from './MetricsCard';
-import BasicBarChart from '../charts/BasicBarChart';
+import Chart from '../charts/Chart'; 
+import Deposits from '../charts/Deposits'; 
+import Customer from '../charts/Customers'; 
+import MetricsCard from './MetricsCard'; 
+import BasicBarChart from '../charts/BasicBarChart'; 
 import Tasks from '../charts/Tasks';
+import { useEffect, useState } from 'react';
 
+interface User {
+    id: number;
+    email: string;
+    username: string;
+    password: string;
+    name: {
+      firstname: string;
+      lastname: string;
+    };
+    address: {
+      city: string;
+      street: string;
+      number: number;
+      zipcode: string;
+      geolocation: {
+        lat: string;
+        long: string;
+      };
+    };
+    phone: string;
+    __v: number;
+  }
+  
+  interface Product {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+    rating: {
+      rate: number;
+      count: number;
+    };
+  }
+  
 const drawerWidth: number = 240;
 
 interface AppBarProps extends MuiAppBarProps {
@@ -81,11 +118,32 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
+    const [userCount, setUserCount] = useState<number>(0);
+    const [productCount, setProductCount] = useState<number>(0);
+    const [totalSales, setTotalSales] = useState<number>(0);
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
     };
-
+    useEffect(() => {
+        // Fetch user count
+        fetch('https://fakestoreapi.com/users')
+          .then(res => res.json())
+          .then((users: User[]) => {
+            setUserCount(users.length);
+          })
+          .catch(error => console.error('Error fetching users:', error));
+    
+        // Fetch product count and total sales
+        fetch('https://fakestoreapi.com/products')
+          .then(res => res.json())
+          .then((products: Product[]) => {
+            setProductCount(products.length);
+            const totalSales = products.reduce((sum, product) => sum + product.price, 0);
+            setTotalSales(totalSales);
+          })
+          .catch(error => console.error('Error fetching products:', error));
+      }, []);
     return (
         <ThemeProvider theme={defaultTheme}>
             <Box sx={{ display: 'flex' }}>
@@ -183,7 +241,7 @@ export default function Dashboard() {
                                         borderRadius: 5
                                     }}
                                 >
-                                    <MetricsCard title='Total Active Users' percentChange={+2.6} count={18765} Icon={ShoppingCartIcon} />
+                                    <MetricsCard title='Total Active Users' percentChange={+2.6} count={userCount} Icon={ShoppingCartIcon} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} md={4} lg={4}>
@@ -195,7 +253,7 @@ export default function Dashboard() {
                                         borderRadius: 5,
                                     }}
                                 >
-                                    <MetricsCard title='Total Installed' percentChange={+0.2} count={4876} Icon={PersonIcon} />
+                                    <MetricsCard title='Total Sales' percentChange={+0.2} count={Math.floor(totalSales)} Icon={PersonIcon} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} md={4} lg={4}>
@@ -207,7 +265,7 @@ export default function Dashboard() {
                                         borderRadius: 5,
                                     }}
                                 >
-                                    <MetricsCard title='Total Active Users' percentChange={-0.1} count={678} Icon={ShoppingCartIcon} />
+                                    <MetricsCard title='Total Products Sold' percentChange={-0.1} count={productCount} Icon={ShoppingCartIcon} />
                                 </Paper>
                             </Grid>
 
