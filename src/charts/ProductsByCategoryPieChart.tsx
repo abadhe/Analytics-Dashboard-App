@@ -2,13 +2,13 @@ import * as React from 'react';
 import Title from '../components/Title';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useEffect, useState } from 'react';
+import ProductCategory from '../interfaces/ProductCategory';
+// interface ProductCategory {
+//     id: number;
+//     value: number;
+//     label: string;
+// }
 
-interface ProductCategory {
-    id: number;
-    value: number;
-    label: string;
-}
-//export default function Deposits()
 const Deposits: React.FC = () =>
  {
   const [categories, setCategories] = useState<string[]>([]);

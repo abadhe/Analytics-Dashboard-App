@@ -1,26 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import Title from '../components/Title';
-
-interface Address {
-    geolocation: {
-      lat: string;
-      long: string;
-    };
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
-  }
-
-interface User {
-  id: number;
-  name: string;
-  email:string;
-  username:string,
-  address: Address;
-  phone: string;
-}
+import User from '../interfaces/User';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 150 },

@@ -20,49 +20,28 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from '../charts/Chart'; 
-import Deposits from '../charts/Deposits'; 
-import Customer from '../charts/Customers'; 
+import Chart from '../charts/LineChart'; 
+import Deposits from '../charts/ProductsByCategoryPieChart'; 
+import Customer from '../charts/CustomerGrid'; 
 import MetricsCard from './MetricsCard'; 
 import BasicBarChart from '../charts/BasicBarChart'; 
-import Tasks from '../charts/Tasks';
+import Tasks from '../charts/TasksGrid';
 import { useEffect, useState } from 'react';
-
-interface User {
-    id: number;
-    email: string;
-    username: string;
-    password: string;
-    name: {
-      firstname: string;
-      lastname: string;
-    };
-    address: {
-      city: string;
-      street: string;
-      number: number;
-      zipcode: string;
-      geolocation: {
-        lat: string;
-        long: string;
-      };
-    };
-    phone: string;
-    __v: number;
-  }
+import UserWithAddress from '../interfaces/UserWithAddress';
+import Product from '../interfaces/Product';
   
-  interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-      rate: number;
-      count: number;
-    };
-  }
+//   interface Product {
+//     id: number;
+//     title: string;
+//     price: number;
+//     description: string;
+//     category: string;
+//     image: string;
+//     rating: {
+//       rate: number;
+//       count: number;
+//     };
+//   }
   
 const drawerWidth: number = 240;
 
@@ -114,7 +93,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
@@ -126,15 +104,14 @@ export default function Dashboard() {
         setOpen(!open);
     };
     useEffect(() => {
-        // Fetch user count
+
         fetch('https://fakestoreapi.com/users')
           .then(res => res.json())
-          .then((users: User[]) => {
+          .then((users: UserWithAddress[]) => {
             setUserCount(users.length);
           })
           .catch(error => console.error('Error fetching users:', error));
     
-        // Fetch product count and total sales
         fetch('https://fakestoreapi.com/products')
           .then(res => res.json())
           .then((products: Product[]) => {
@@ -151,7 +128,7 @@ export default function Dashboard() {
                 <AppBar position="absolute" open={open} color='transparent' sx={{ boxShadow: 0 }}>
                     <Toolbar
                         sx={{
-                            pr: '24px', // keep right padding when drawer closed
+                            pr: '24px',
                         }}
                     >
                         <IconButton
