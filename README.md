@@ -32,7 +32,7 @@ To run the project locally, follow these steps:
 
    ```bash
    git clone https://github.com/abadhe/Analytics-Dashboard-App.git
-   cd analytics-dashboard
+   cd Analytics-Dashboard-App
    npm install
-   npm start
+   npm run dev
    ```
