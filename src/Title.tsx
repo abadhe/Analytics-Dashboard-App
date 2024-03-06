@@ -12,3 +12,4 @@ export default function Title(props: TitleProps) {
         </Typography>
     );
 }
+
