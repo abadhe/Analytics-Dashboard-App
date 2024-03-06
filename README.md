@@ -1,32 +1,38 @@
-## Setup Instructions
+# Analytics Dashboard using TypeScript and Material UI
 
-1. **Extract the project folder:**
-   - Extract the contents of the provided ZIP file to a desired location on your local machine.
+This project is an analytics dashboard built using React with TypeScript and the Material UI library. The dashboard provides visualizations of various charts and graphs for analyzing data obtained from API calls. For demonstration purposes, we used mock JSON data from the [FakeStoreAPI](https://fakestoreapi.com/docs).
 
-2. **Navigate to the project directory:**
-   - Open your terminal or command prompt.
-   - Change the current working directory to the extracted project folder using the following command:
-     ```
-     cd "Analytics-Dashboard-App"
-     ```
+## Features
 
-3. **Install dependencies:**
-   - In the terminal, run the following command to install all the required dependencies for the project:
-     ```
-     npm install
-     ```
+- **React with TypeScript**: Utilized TypeScript for type safety and enhanced development experience in React.
+- **Material UI**: Employed Material UI for building a beautiful and responsive user interface.
+- **Data Visualization**: Implemented various charts and graphs using Material UI's components for effective data visualization.
+- **API Integration**: Integrated with the FakeStoreAPI to fetch mock data for showcasing the analytics dashboard.
+- **Chart Types**: Included a variety of chart types such as line charts, bar charts, pie charts, and more to cater to different visualization needs.
+- **Interactive Dashboard**: Developed an interactive dashboard with features like filtering, sorting, and drill-down capabilities for deeper data analysis.
 
-4. **Start the development server:**
-   - After the installation is complete, start the development server with the following command:
-     ```
-     npm run dev
-     ```
-   - This will start the development server and open the application in your default web browser.
+## Technologies Used
 
-5. **Data Source:**
-   - This application uses mock JSON data from the [FakeStoreAPI](https://fakestoreapi.com/docs) for demonstration purposes.
+- React
+- TypeScript
+- Material UI
+- FakeStoreAPI
 
-6. **Additional Setup (if applicable):**
-   - If the application requires any additional setup steps, such as environment variable configuration or database setup, provide those instructions here.
+## Screenshots
 
-Now you're ready to explore and work with the Analytics Dashboard App!
+![Dashboard Overview](/Analytics-Dashboard-App/src/assets/Example1.png)
+
+![Dashboard Overview](/Analytics-Dashboard-App/src/assets/Example2.png)
+
+![Dashboard Overview](Analytics-Dashboard-App/src/assets/Example3.png)
+
+## Installation
+
+To run the project locally, follow these steps:
+
+   ```bash
+   git clone https://github.com/your-username/analytics-dashboard.git
+   cd analytics-dashboard
+   npm install
+   npm start
+   ```
