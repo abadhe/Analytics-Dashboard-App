@@ -20,11 +20,11 @@ This project is an analytics dashboard built using React with TypeScript and the
 
 ## Screenshots
 
-![Dashboard Overview](/Analytics-Dashboard-App/src/assets/Example1.png)
+![Dashboard Overview](./src/assets/Example1.png)
 
-![Dashboard Overview](/Analytics-Dashboard-App/src/assets/Example2.png)
+![Dashboard Overview](./src/assets/Example2.png)
 
-![Dashboard Overview](Analytics-Dashboard-App/src/assets/Example3.png)
+![Dashboard Overview](./src/assets/Example3.png)
 
 ## Installation
 
