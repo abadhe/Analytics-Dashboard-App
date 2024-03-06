@@ -1,5 +1,5 @@
 import { BarChart } from '@mui/x-charts/BarChart';
-import Title from './Title';
+import Title from '../components/Title';
 import * as React from 'react';
 
 export default function BasicBarChart() {
@@ -8,7 +8,7 @@ export default function BasicBarChart() {
         <React.Fragment>
             <Title>Product Category vs Product Sales</Title>
             <BarChart
-                xAxis={[{ scaleType: 'band', data: ['electronics', 'jewelery', 'clothing'] }]}
+                xAxis={[{ scaleType: 'band', data: ['electronics', 'jewelry', 'clothing'] }]}
                 series={[{ data: [4, 3, 5] }, { data: [2, 5, 6] } , { data: [2, 3, 4] },]}
                 yAxis={[
                     {

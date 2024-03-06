@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import Title from './Title';
+import Title from '../components/Title';
 
 interface Address {
     geolocation: {

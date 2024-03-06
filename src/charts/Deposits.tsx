@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Title from './Title';
+import Title from '../components/Title';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useEffect, useState } from 'react';
 

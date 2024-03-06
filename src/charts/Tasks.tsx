@@ -5,7 +5,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import Title from './Title';
+import Title from '../components/Title';
 
 export default function Tasks() {
   const [checked, setChecked] = React.useState<number[]>([]);

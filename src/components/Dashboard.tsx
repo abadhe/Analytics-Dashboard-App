@@ -20,12 +20,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Customer from './Customers';
+import Chart from '../charts/Chart';
+import Deposits from '../charts/Deposits';
+import Customer from '../charts/Customers';
 import MetricsCard from './MetricsCard';
-import BasicBarChart from './BasicBarChart';
-import Tasks from './Tasks';
+import BasicBarChart from '../charts/BasicBarChart';
+import Tasks from '../charts/Tasks';
 
 const drawerWidth: number = 240;
 
